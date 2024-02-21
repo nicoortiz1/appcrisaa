@@ -18,6 +18,8 @@ return new class extends Migration
             $table->text("descripcion", 50)->nullable();
             $table->boolean("menu")->default(0);
             $table->integer("orden")->default(1);
+            $table->foreignID("cliente_id")->references('id')->on('clientes')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignID("user_id")->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -29,3 +31,4 @@ return new class extends Migration
         Schema::dropIfExists('remitos');
     }
 };
+
