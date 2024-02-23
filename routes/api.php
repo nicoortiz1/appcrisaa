@@ -2,31 +2,31 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\AuthControllers;
-use App\Http\Controllers\Api\Admin\UserControllers;
-use App\Http\Controllers\Api\Admin\RemitoControllers;
-use App\Http\Controllers\Api\Admin\EmpresaControllers;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\Admin\UserController;
+use App\Http\Controllers\Api\Admin\RemitoController;
+use App\Http\Controllers\Api\Admin\EmpresaController;
 
 Route::prefix('v1')->group(function (){
     ///Publicas
-    Route::get('/public/{slug}',[frontControllers::class, 'categorias']);
+    Route::get('/public/{slug}', [frontController::class, 'categorias']);
     //::auth
-    //Route::get('/auth/register',[AuthControllers::class, 'register']);
-    //Route::get('/auth/login',[AuthControllers::class, 'login']);
+    Route::post('/auth/register', [AuthController::class, 'register']); 
+    Route::post('/auth/login', [AuthController::class, 'login']); 
 
 
     ///Privadas
     Route::group(['middleware'=>'auth:sanctum'],function () {
         //::auth
-        Route::post('/auth/logout',[AuthControllers::class, 'logout']);
+        Route::post('/auth/logout',[AuthController::class, 'logout']);
         
         //::rol cliente
        // Route::apiResource('/client/empresa', ClienteControllers::class);
 
         //::rol admin 
-        Route::apiResource('/admin/user', UserControllers::class);
-        Route::apiResource('/admin/remito', RemitoControllers::class);
-        Route::apiResource('/admin/empresa', EmpresaControllers::class);
+        Route::apiResource('/admin/user', UserController::class);
+        Route::apiResource('/admin/remito', RemitoController::class);
+        Route::apiResource('/admin/empresa', EmpresaController::class);
 
     });
 
