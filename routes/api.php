@@ -26,7 +26,8 @@ Route::prefix('v1')->group(function (){
         //::rol admin 
         Route::apiResource('/admin/user', UserController::class);
         Route::apiResource('/admin/remito', RemitoController::class);
-        Route::apiResource('/admin/empresa', EmpresaController::class);
+        Route::apiResource('/admin/empresa', EmpresaController::class); //revisar que pasa con estesie s que se uso o no
+        
 
     });
 

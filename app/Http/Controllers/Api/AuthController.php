@@ -14,8 +14,8 @@ class AuthController extends Controller
         $response = ["success"=>false];
         //validacion
         $validator = Validator::make($request->all(),[
-            'name' => 'required',
-            'email' => 'required|emial',
+            'nombre' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
         ]);
         

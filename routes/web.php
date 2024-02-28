@@ -17,6 +17,7 @@ use Spatie\Permission\Models\Role;
 //$role= Role::create(['name'=>'admin']);
 //$role= Role::create(['name'=>'client']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/{any}', function () {
+    return view('app'); // 'app' es el nombre de tu vista de Blade que renderiza tu aplicación React
+})->where('any', '.*');
