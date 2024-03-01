@@ -57,6 +57,7 @@ class AuthController extends Controller
 
             $response['token'] = $user->createToken("Codea")->plainTextToken;
             $response['user'] = $user;
+            $response['message'] = "Logueado";
             $response['success'] = true;    
         }
         return response()->json($response, 200);
