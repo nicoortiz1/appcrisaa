@@ -7,11 +7,11 @@ const Navbar = () => {
 
     const {getRol, getLogout, getToken} = AuthUser()
 
-    const logoutUser = () =>{
+    const logoutUser =()=>{
         Config.getLogout('/logout')
         .then(response=>{
             console.log(response)
-            getLogout();
+            //getLogout();
         }).catch(error => {
             console.error(error);
         })

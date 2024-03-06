@@ -10,38 +10,38 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
 
-    const Navigate = useNavigate()
+    const navigate = useNavigate()
 
     useEffect(()=>{
       if(getToken()){
-        Navigate("/")
+        navigate("/")
       }
     },[])
 
-    const submitLogin =async(e) =>{
+    const submitLogin = async (e) => {
       e.preventDefault();
-      await axios.get('/sanctum/csrf-cookie').then((response) => {
-        Config.getLogin({email,password})
-        .then((data)=>{
-          if(data.success){
-            console.log(data)
+      console.log('submitLogin fue llamado');
+    
+      Config.getLogin({ email, password })
+        .then(({data}) => {
+          if (data.success) {
             setToken(
               data.user,
               data.token,
               data.user.roles[0].name
             )
-            //console.log(data)
-          }else{
-            setMessage(data.data.message)
+
+            //console.log('Mensaje:', data);
+          } else {
+            console.log('Mensaje de error:', data.message);
           }
         })
-
-      })
-      
-
-      
-      
-  }
+        .catch((error) => {
+          console.error('Error al realizar la solicitud:', error);
+        });
+    };
+    
+    
 
   return (
     <div className='container'>

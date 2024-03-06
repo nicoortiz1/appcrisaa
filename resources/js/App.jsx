@@ -29,8 +29,8 @@ export const App = () => {
             <Route path="/register" element={<Register />}></Route>
           </Route>
           <Route element={<ProtectedRoutes/>}>
-            <Route path="/admin" element={<LayoutAdmin />}>
-              <Route index element={<PanelAdmin/>} />
+            <Route path="/admin" element={<LayoutAdmin/>}>
+            <Route index element={<PanelAdmin/>} />
             </Route>
             <Route path="/client" element={<LayoutClient/>}>
             <Route index element={<PanelClient/>} />

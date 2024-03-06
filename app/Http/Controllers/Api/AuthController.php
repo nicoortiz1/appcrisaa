@@ -54,12 +54,15 @@ class AuthController extends Controller
         if(auth()->attempt(['email' => $request->email, 'password' => $request->password])){
             $user = auth()->user();
             $user->hasRole('client'); ///add rol
-
-            $response['token'] = $user->createToken("Codea")->plainTextToken;
+        
+            $response['token'] = $user->createToken("crisa.app")->plainTextToken;
             $response['user'] = $user;
             $response['message'] = "Logueado";
             $response['success'] = true;    
+        } else {
+            $response['message'] = "Credenciales incorrectas. Por favor, inténtelo de nuevo.";
         }
+        
         return response()->json($response, 200);
 
     }
