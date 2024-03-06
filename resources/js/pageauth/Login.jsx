@@ -22,23 +22,29 @@ const Login = () => {
       e.preventDefault();
       console.log('submitLogin fue llamado');
     
-      Config.getLogin({ email, password })
-        .then(({data}) => {
-          if (data.success) {
-            setToken(
-              data.user,
-              data.token,
-              data.user.roles[0].name
-            )
-
-            //console.log('Mensaje:', data);
-          } else {
-            console.log('Mensaje de error:', data.message);
-          }
-        })
-        .catch((error) => {
-          console.error('Error al realizar la solicitud:', error);
-        });
+      // Obtener la cookie CSRF
+      await axios.get('/sanctum/csrf-cookie').then(() => {
+        console.log('Cookie CSRF obtenida correctamente');
+      
+        // Realizar la solicitud de inicio de sesión
+        Config.getLogin({ email, password })
+          .then(({ data }) => {
+            if (data.success) {
+              setToken(
+                data.user,
+                data.token,
+                data.user.roles[0].name
+              );
+            } else {
+              console.log('Mensaje de error:', data.message);
+            }
+          })
+          .catch((error) => {
+            console.error('Error al realizar la solicitud de inicio de sesión:', error);
+          });
+      }).catch((error) => {
+        console.error('Error al obtener la cookie CSRF:', error);
+      });
     };
     
     

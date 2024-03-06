@@ -39,6 +39,8 @@ const AuthUser = () => {
     };
 
     const getLogout = () => {
+        // otras tareas necesarias para cerrar sesión...
+        console.log("Se ha llamado a la función getLogout");
         sessionStorage.clear();
         navigate('/');
     };

@@ -7,15 +7,17 @@ const Navbar = () => {
 
     const {getRol, getLogout, getToken} = AuthUser()
 
-    const logoutUser =()=>{
+    const logoutUser = () => {
         Config.getLogout('/logout')
-        .then(response=>{
-            console.log(response)
-            //getLogout();
-        }).catch(error => {
-            console.error(error);
-        })
-    }
+            .then(response => {
+                console.log("Usuario cerró sesión exitosamente.");
+                getLogout();
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
+    
 
     const renderLinks = () =>{
         if(getToken()){

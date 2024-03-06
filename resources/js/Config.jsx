@@ -6,5 +6,10 @@ export default {
     // AUTH
     getRegister: (data) => axios.post(`${base_api_url}/auth/register`, data),
     getLogin: (data) => axios.post(`${base_api_url}/auth/login`, data),
-    getLogout:() => axios.post(`${base_api_url}/auth/logout`), // Sin enviar ningún dato
+    getLogout: (token) => axios.post(`${base_api_url}/auth/logout`, null, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      // Sin enviar ningún dato
 };
