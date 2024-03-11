@@ -10,6 +10,10 @@ export default {
         headers: {
           Authorization: `Bearer ${token}`
         }
-      })
+      }),
       // Sin enviar ningún dato
+    //ROL ADMIN
+    getUserAll: (data) => axios.post(`${base_api_url}/admin/user`),
+      
+
 };
