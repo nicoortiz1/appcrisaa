@@ -16,8 +16,9 @@ const LayoutClient = () => {
 
   return (
     <>
-      <h1>Cliente</h1>
+      
       <Navbar />
+      <h1>Cliente</h1>
       <Outlet />
       <Footer />
     </>

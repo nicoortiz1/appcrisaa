@@ -1,0 +1,37 @@
+.Page-home{
+    height: 100vh;
+}
+.navbar-app{
+    padding: 0 !important;
+    width: 20% !important;
+}
+.navbar-app div{
+    width: 280px !important;
+}
+.panel-layaout{
+    display: flex;
+}
+.panel-layaout div {
+    width: 100%;
+}
+
+.navbar-content{
+    width: 80% !important;
+}
+
+@media (max-width: 768px) {
+    .panel-layaout div{
+        display: flex;
+        flex-direction: column !important;
+    }
+    
+    .navbar-content{
+        width: 100% !important;
+    }
+    .navbar-app{
+        width: 100% !important;
+    }
+    .navbar-app div{
+        width: 100% !important;
+    }
+}

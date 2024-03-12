@@ -1,16 +1,33 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-        <div className="col-sm-3 pt-3 pb-3">
-            <div className="list-group">
-            <NavLink to={`/admin/user`} className={({isActive})=>(isActive ? "list-group-item active" : "list-group-item")}>User</NavLink>
-            <NavLink to={`/admin/categoria`} className={({isActive})=>(isActive ? "list-group-item active" : "list-group-item")}>Categoria</NavLink>
-            <NavLink to={`/admin/empresa`} className={({isActive})=>(isActive ? "list-group-item active" : "list-group-item")}>Empresa</NavLink>           
-            </div>
-        </div>
-  )
-}
+    <div className="navbar-app">
 
-export default Sidebar
+        {/* Primer elemento: Sidebar original */}
+        <div className="d-flex flex-column flex-shrink-0 p-3 bg-light" style={{  }}>
+          <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg className="bi pe-none me-2" width="40" height="32"><use xlinkHref="#bootstrap"/></svg>
+            <span className="fs-4">Sidebar</span>
+          </a>
+          <hr />
+          <ul className="nav nav-pills flex-column mb-auto">
+            <li className="nav-item">
+            <NavLink to="/admin/user" className="list-group-item">User</NavLink>
+            </li>
+            <li className="nav-item">
+            <NavLink to="/admin/remitos" className="list-group-item">Remitos</NavLink>
+            </li>
+            <li className="nav-item">
+            <NavLink to="/admin/empresa" className="list-group-item">Empresas</NavLink>  
+            </li>
+          </ul>
+          <hr />
+                  
+      </div>
+    </div>
+  );
+};
+
+export default Sidebar;

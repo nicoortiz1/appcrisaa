@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 //LAYOUTS
 import LayoutPublic from './layouts/LayoutPublic';
 import LayoutAdmin from './layouts/LayoutAdmin';
