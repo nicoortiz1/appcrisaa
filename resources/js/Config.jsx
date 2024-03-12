@@ -12,8 +12,13 @@ export default {
         }
       }),
       // Sin enviar ningún dato
+
     //ROL ADMIN
-    getUserAll: (data) => axios.post(`${base_api_url}/admin/user`),
+    getUserAll: (token) => axios.get(`${base_api_url}/admin/user`,{
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }),
       
 
 };

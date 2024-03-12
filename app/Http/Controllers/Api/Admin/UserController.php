@@ -9,10 +9,15 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function index(){
-        $data = User::get(["id", "nombre", "email"]);
+        $data = User::whereHas('roles', function($q){
+            $q->where("name","client");
+        })->get(["id", "nombre", "email"]);
         return response()->json($data, 200);
     }
     
+    public function store(Request $request){
+
+    }
 
     public function show($id){
         $data = User::find($id);
