@@ -23,7 +23,7 @@ const Navbar = () => {
         if(getToken()){
             return(
                 <>    
-                    <li className="nav-item">
+                    {/*<li className="nav-item">
                         <a className="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li className="nav-item">
@@ -31,7 +31,7 @@ const Navbar = () => {
                     </li>                                     
                     <li className="nav-item">
                         <a className="nav-link" href={`/${getRol()}`}>Administracion</a>
-                    </li>
+            </li>*/}
                     <li className="nav-item">
                         <a className="nav-link" href="/" onClick={logoutUser}>Cerrar Sesion</a>
                     </li>
