@@ -19,7 +19,8 @@ import PanelAdmin from './pageadmin/PanelAdmin';
 import PanelClient from './pageclient/PanelClient';
 
 //ADMIN
-import UserAll from './pageadmin/UserAll';
+import UserAll from './pageadmin/user/UserAll';
+import Remito from './pageadmin/remito/Remito';
 
 export const App = () => {
   return (
@@ -34,6 +35,7 @@ export const App = () => {
             <Route path="/admin" element={<LayoutAdmin/>}>
             <Route index element={<PanelAdmin/>} />
             <Route path="user" element={<UserAll/>}/>
+            <Route path="remito" element={<Remito/>}/>
             </Route>
             <Route path="/client" element={<LayoutClient/>}>
             <Route index element={<PanelClient/>} />

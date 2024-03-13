@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Sidebar from './Sidebar'
-import Config from '../Config';
-import AuthUser from '../pageauth/AuthUser';
+import Sidebar from '../Sidebar'
+import Config from '../../Config';
+import AuthUser from '../../pageauth/AuthUser';
 
 function UserAll() {
 
@@ -28,7 +28,7 @@ function UserAll() {
               <table className="table">
                 <thead>
                   <tr>
-                    <th>ORDEN</th><th>NAME</th><th>ACCION</th>
+                    <th>ID</th><th>NOMBRE</th><th>CORREO </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -39,7 +39,7 @@ function UserAll() {
                           <tr key ={user.id}>
                             <td>{user.id}</td>
                             <td>{user.nombre}</td>
-                            <td></td>
+                            <td>{user.email}</td>
                           </tr>
 
                         )

@@ -17,7 +17,7 @@ const Sidebar = () => {
             <NavLink to="/admin/user" className="list-group-item">User</NavLink>
             </li>
             <li className="nav-item">
-            <NavLink to="/admin/remitos" className="list-group-item">Remitos</NavLink>
+            <NavLink to="/admin/remito" className="list-group-item">Remitos</NavLink>
             </li>
             <li className="nav-item">
             <NavLink to="/admin/empresa" className="list-group-item">Empresas</NavLink>  

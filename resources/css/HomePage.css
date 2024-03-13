@@ -23,6 +23,7 @@
     .panel-layaout div{
         display: flex;
         flex-direction: column !important;
+        height: 100vh;
     }
     
     .navbar-content{
