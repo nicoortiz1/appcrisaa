@@ -11,7 +11,7 @@ class UserController extends Controller
     public function index(){
         $data = User::whereHas('roles', function($q){
             $q->where("name","client");
-        })->get(["id", "nombre", "email"]);
+        })->get(["id", "nombre", "email", "aprobado",]);
         return response()->json($data, 200);
     }
     

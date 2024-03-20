@@ -14,7 +14,7 @@ export default {
       // Sin enviar ningún dato
 
     //ROL ADMIN
-    getUserAll: (token) => axios.get(`${base_api_url}/admin/user`,{
+    getUserAll: (token) => axios.get(`http://localhost:8000/api/v1/admin/user`,{
       headers: {
         Authorization: `Bearer ${token}`
       }
