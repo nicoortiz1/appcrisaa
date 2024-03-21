@@ -9,12 +9,19 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function index(){
-        $data = User::whereHas('roles', function($q){
-            $q->where("name","client");
-        })->get(["id", "nombre", "email", "aprobado",]);
+        $data = User::with('roles')->whereHas('roles', function($q){
+            $q;
+        })->get(["id", "nombre", "email", "aprobado"]);
+        $data = $data->map(function ($user) {
+            $user['rol'] = $user->roles->first()->name; 
+            unset($user->roles); 
+            return $user;
+        });
+    
         return response()->json($data, 200);
     }
     
+
     public function store(Request $request){
 
     }
