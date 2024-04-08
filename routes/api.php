@@ -12,9 +12,9 @@ Route::prefix('v1')->group(function (){
     Route::get('/public/{slug}', [frontController::class, 'categorias']);
     //::auth
     Route::post('/auth/register', [AuthController::class, 'register']); 
-    Route::post('/auth/login', [AuthController::class, 'login']); 
-
-
+    Route::post('/auth/login', [AuthController::class, 'login']);
+    Route::post('/auth/validate-token', [AuthController::class, 'validateToken']);
+ 
     ///Privadas
     Route::group(['middleware'=>'auth:sanctum'],function () {
         //::auth

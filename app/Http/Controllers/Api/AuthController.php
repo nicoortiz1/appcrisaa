@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class AuthController extends Controller
 {
@@ -78,4 +80,24 @@ class AuthController extends Controller
         return response()->json($response, 200);  
 
     }
+
+    public function validateToken(Request $request)
+    {
+        $token = $request->bearerToken(); // Obtiene el token de autenticación de la solicitud
+
+        if ($token && PersonalAccessToken::findToken($token)) {
+            // Si hay un token presente en la solicitud y es válido
+            return response()->json([
+                'valid' => true,
+                'message' => 'Token válido',
+            ]);
+        } else {
+            // Si no hay un token presente en la solicitud o no es válido
+            return response()->json([
+                'valid' => false,
+                'message' => 'Token inválido',
+            ], 401); // Devuelve un código de estado 401 (No autorizado) si el token no es válido
+        }
+    }
+
 }

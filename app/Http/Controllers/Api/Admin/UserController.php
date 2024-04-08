@@ -11,7 +11,7 @@ class UserController extends Controller
     public function index(){
         $data = User::with('roles')->whereHas('roles', function($q){
             $q;
-        })->get(["id", "nombre", "email", "aprobado"]);
+        })->get(["id", "nombre", "email", "aprobado","token"]);
         $data = $data->map(function ($user) {
             $user['rol'] = $user->roles->first()->name; 
             unset($user->roles); 
