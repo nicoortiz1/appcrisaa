@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\Admin\RemitoController;
 use App\Http\Controllers\Api\Admin\EmpresaController;
+use App\Http\Controllers\Api\Admin\ClienteController;
+
 
 Route::prefix('v1')->group(function (){
     ///Publicas
@@ -19,16 +21,15 @@ Route::prefix('v1')->group(function (){
     Route::group(['middleware'=>'auth:sanctum'],function () {
         //::auth
         Route::post('/auth/logout',[AuthController::class, 'logout']);
-        
-        //::rol cliente
-       Route::apiResource('/client/empresa', ClienteControllers::class);
 
         //::rol admin 
         Route::apiResource('/admin/user', UserController::class);
         Route::apiResource('/admin/remito', RemitoController::class);
-        Route::apiResource('/admin/empresa', EmpresaController::class); //revisar que pasa con estesie s que se uso o no
+        Route::apiResource('/admin/empresa', EmpresaController::class);
         
+        Route::post('/admin/clientescrear', [\App\Http\Controllers\Api\Admin\ClienteController::class, 'store']);
 
+        
     });
 
 
