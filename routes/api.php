@@ -27,6 +27,9 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('/admin/remito', RemitoController::class);
         Route::apiResource('/admin/empresa', EmpresaController::class);
         Route::apiResource('/admin/clients', Clients::class);
+
+        Route::get('/clients', 'App\Http\Controllers\Api\Admin\Clients@index');
+
     });
 });
 
