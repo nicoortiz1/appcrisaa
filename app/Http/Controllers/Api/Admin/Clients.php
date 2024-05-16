@@ -21,8 +21,11 @@ class Clients extends Controller
             'direccion' => 'required|string|max:255',
             'provincia' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
-            'publicado' => 'required|boolean',
-            'orden' => 'required|integer',
+        ]);
+        
+        $request->merge([
+            'publicado' => 1,
+            'orden' => 1,
         ]);
 
         // Crear un nuevo cliente con los datos proporcionados
