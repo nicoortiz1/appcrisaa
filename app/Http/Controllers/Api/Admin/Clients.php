@@ -13,7 +13,8 @@ class Clients extends Controller
     try {
         // Validar los datos del formulario
         $request->validate([
-            'nombre' => 'required|string|max:255',
+            'empresa' => 'required|string|max:255',
+            'per_contacto' => 'required|string|max:255',
             'email' => 'required|email|unique:clients,email',
             'cuil' => 'required|string|max:255',
             'dni' => 'required|string|max:255',
