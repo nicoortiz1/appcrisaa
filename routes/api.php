@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\Admin\RemitoController;
 use App\Http\Controllers\Api\Admin\EmpresaController;
 use App\Http\Controllers\Api\Admin\Clients;
+use App\Http\Controllers\Api\Admin\ReporteServicioController;
 
 Route::prefix('v1')->group(function () {
     // Rutas públicas
@@ -29,6 +30,13 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('/admin/clients', Clients::class);
 
         Route::get('/clients', 'App\Http\Controllers\Api\Admin\Clients@index');
+        
+        //Rutas para la administracion del reporte
+        Route::get('admin/reporte', [ReporteServicioController::class, 'index']);
+        Route::get('admin/reporte/{id}', [ReporteServicioController::class, 'show']);
+        Route::post('admin/reporte', [ReporteServicioController::class, 'store']);
+        Route::put('admin/reporte/{id}', [ReporteServicioController::class, 'update']);
+        Route::delete('admin/reporte/{id}', [ReporteServicioController::class, 'destroy']);
 
     });
 });
