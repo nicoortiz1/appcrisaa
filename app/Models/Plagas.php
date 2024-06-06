@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Plagas extends Model
 {
     use HasFactory;
+
+    protected $table = 'plagas';
+
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+    ];
 }

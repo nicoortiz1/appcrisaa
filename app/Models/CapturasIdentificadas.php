@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class CapturasIdentificadas extends Model
 {
     use HasFactory;
+
+    protected $table = 'capturas_identificadas';
+
+    protected $fillable = [
+        'tipo',
+        'cantidad',
+    ];
+
 }
+

@@ -15,6 +15,5 @@ class Remito extends Model
         'descripcion'
         
     ];
-    public $timestamps = false;
 
 }
