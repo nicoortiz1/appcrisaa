@@ -24,6 +24,10 @@ class ReporteServicio extends Model
         'observaciones',
     ];
 
+    public function cliente()
+    {
+        return $this->belongsTo(Client::class, 'cliente_id');
+    }
     
     public function inspeccionInstalaciones()
     {
@@ -38,6 +42,11 @@ class ReporteServicio extends Model
     public function controlAves()
     {
         return $this->belongsTo(ControlAves::class, 'control_aves_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id');
     }
 
 }
