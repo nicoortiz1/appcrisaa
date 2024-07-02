@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\Admin\RemitoController;
 use App\Http\Controllers\Api\Admin\EmpresaController;
 use App\Http\Controllers\Api\Admin\Clients;
+use App\Http\Controllers\Api\MecanismosUtilizadosController;
 
 Route::prefix('v1')->group(function () {
     // Rutas públicas
@@ -37,6 +38,13 @@ Route::prefix('v1')->group(function () {
         Route::post('/reportes-servicio', [ReporteServicioController::class, 'store']);
         Route::put('/reportes-servicio/{id}', [ReporteServicioController::class, 'update']);
         Route::delete('/reportes-servicio/{id}', [ReporteServicioController::class, 'destroy']);
+
+        //Rutas para mecanismos utilizados
+        Route::get('/mecanismos', [MecanismosUtilizadosController::class, 'index']);
+        Route::get('/mecanismos/{id}', [MecanismosUtilizadosController::class, 'show']);
+        Route::post('/mecanismos', [MecanismosUtilizadosController::class, 'store']);
+        Route::put('/mecanismos/{id}', [MecanismosUtilizadosController::class, 'update']);
+        Route::delete('/mecanismos/{id}', [MecanismosUtilizadosController::class, 'destroy']);
 
     });
 });
